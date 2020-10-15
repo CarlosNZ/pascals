@@ -3,6 +3,8 @@ import pprint
 pp = pprint.PrettyPrinter()
 
 #  Calculates next row of Pascal's triangle based on previous row
+
+
 def calculate_next_row(curr_row):
     if curr_row == []:
         return [1]
@@ -57,4 +59,16 @@ for (num, count) in counts.items():
     if new_count >= min_freq:
         threshold_counts[num] = new_count
 
-pp.pprint(threshold_counts)
+# pp.pprint(threshold_counts)
+# pp.pprint(counts)
+
+odd_count, even_count = 0, 0
+
+for i in counts.keys():
+    if i % 2 == 0:
+        even_count += counts[i]
+    else:
+        odd_count += counts[i]
+
+print(odd_count, even_count)
+print(str(odd_count/(odd_count+even_count) * 100) + "%")
